@@ -1,5 +1,13 @@
+import { Outlet } from "react-router-dom";
+import Nav from "./layout/Nav/Nav";
+
 const App = () => {
-  return <>react app</>;
+  return (
+    <div>
+      <Nav />
+      <Outlet />
+    </div>
+  );
 };
 
 export default App;
