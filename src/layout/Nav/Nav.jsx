@@ -42,7 +42,7 @@ const Nav = () => {
             <div className="order-3 lg:order-3">
               <Link
                 to="/user-login"
-                className="btn btn-outline order-3 lg:order-3"
+                className="btn order-3 lg:order-3 btn-error"
               >
                 Login
               </Link>
