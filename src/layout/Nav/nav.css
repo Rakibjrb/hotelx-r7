@@ -1,26 +1,5 @@
-.links::before {
-  content: "";
-  width: 16px;
-  position: absolute;
-  top: 10%;
-  transition: 0.8s;
-  border-radius: 8px;
-}
-.links:hover::before {
-  width: 40px;
-  height: 4px;
-  background: green;
-}
-
 .active {
-  font-weight: 500;
-  transition: 0.8s;
-}
-.active::before {
-  content: "";
-  position: absolute;
-  top: 10%;
-  width: 16px;
-  height: 4px;
-  background: green;
+  font-weight: 600;
+  border-bottom: 3px solid green;
+  padding-bottom: 3px;
 }

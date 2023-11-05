@@ -1,0 +1,23 @@
+.banner {
+  background: url("../../../assets/img/banner/bannerbg.png");
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  .banner {
+    background: linear-gradient(rgba(0, 0, 0, 0.527), rgba(0, 0, 0, 0.411)),
+      url("../../../assets/img/banner/img.jpg");
+    background-size: cover;
+    background-position: right;
+  }
+}
+@media screen and (max-width: 760px) {
+  .banner {
+    background: linear-gradient(rgba(0, 0, 0, 0.527), rgba(0, 0, 0, 0.411)),
+      url("../../../assets/img/banner/img.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+}

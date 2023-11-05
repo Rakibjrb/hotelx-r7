@@ -27,13 +27,13 @@ const Nav = () => {
   const user = false;
 
   return (
-    <div>
-      <div className="max-w-6xl mx-auto py-5 px-3 xl:px-0 z-50">
+    <div className="z-50 absolute w-full top-0 bg-[#fffefe9c]">
+      <div className="max-w-6xl mx-auto py-5 px-3 xl:px-0">
         <nav className="flex flex-row lg:flex-row justify-between items-center font-roboto">
           <div className="order-2 lg:order-1">
             <h4 className="text-2xl font-bold">HotelX</h4>
           </div>
-          <ul className="items-center gap-8 lg:flex lg:order-2 hidden">
+          <ul className="items-center gap-8 lg:flex lg:order-2 hidden text-xl">
             {navLinks}
           </ul>
           {user ? (
