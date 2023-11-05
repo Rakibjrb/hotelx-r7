@@ -3,6 +3,7 @@ import "./nav.css";
 import User from "./User";
 import MobileDrawer from "./MobileDrawer";
 import logo from "../../assets/img/logo/logo.png";
+import { useEffect, useState } from "react";
 
 const navLinks = (
   <>
@@ -25,10 +26,23 @@ const navLinks = (
 );
 
 const Nav = () => {
+  const [sticky, setSticky] = useState(false);
   const user = false;
 
+  useEffect(() => {
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 150) setSticky(true);
+      else setSticky(false);
+    });
+  }, []);
+
   return (
-    <div className="z-50 absolute w-full top-0 bg-[#fffefe9c]">
+    <div
+      id="stickyNav"
+      className={`z-50 ${
+        sticky ? "sticky" : "absolute"
+      } w-full top-0 bg-[#fffefe9c]`}
+    >
       <div className="max-w-6xl mx-auto py-5 px-3 xl:px-0">
         <nav className="flex flex-row lg:flex-row justify-between items-center font-roboto">
           <div className="order-2 lg:order-1">
@@ -48,7 +62,7 @@ const Nav = () => {
             <div className="order-3 lg:order-3">
               <Link
                 to="/user-login"
-                className="btn order-3 lg:order-3 bg-red-500 text-white"
+                className="btn order-3 lg:order-3 bg-red-500 text-white hover:text-black"
               >
                 Login
               </Link>

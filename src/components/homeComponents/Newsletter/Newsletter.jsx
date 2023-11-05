@@ -22,7 +22,7 @@ const Newsletter = () => {
                 <input
                   className="py-2 px-3 text-xl rounded-l-lg"
                   type="email"
-                  placeholder="Enter your name"
+                  placeholder="Enter your email"
                 />
                 <button className="py-[10px] px-5 bg-gray-300 hover:bg-white transition-colors rounded-r-lg uppercase">
                   Subscribe

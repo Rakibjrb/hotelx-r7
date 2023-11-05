@@ -7,12 +7,16 @@ import "swiper/css/navigation";
 import Review from "./Review";
 
 const Testimonials = () => {
+  const [loading, setLoading] = useState(true);
   const [reviews, setReviews] = useState([]);
 
   useEffect(() => {
     fetch("./testimonials.json")
       .then((res) => res.json())
-      .then((data) => setReviews(data));
+      .then((data) => {
+        setReviews(data);
+        setLoading(false);
+      });
   }, []);
 
   return (
@@ -34,14 +38,16 @@ const Testimonials = () => {
             pagination={{ clickable: true }}
             scrollbar={{ draggable: true }}
           >
-            {reviews ? (
+            {loading ? (
+              <div className="flex justify-center">
+                <span className="loading loading-spinner loading-lg"></span>
+              </div>
+            ) : (
               reviews?.map((review, index) => (
                 <SwiperSlide className="h-full" key={index}>
                   <Review review={review} />
                 </SwiperSlide>
               ))
-            ) : (
-              <h2 className="text-xl">Loading...</h2>
             )}
           </Swiper>
         </div>
@@ -54,14 +60,16 @@ const Testimonials = () => {
             pagination={{ clickable: true }}
             scrollbar={{ draggable: true }}
           >
-            {reviews ? (
+            {loading ? (
+              <div className="flex justify-center">
+                <span className="loading loading-spinner loading-lg"></span>
+              </div>
+            ) : (
               reviews?.map((review, index) => (
                 <SwiperSlide className="h-full" key={index}>
                   <Review review={review} />
                 </SwiperSlide>
               ))
-            ) : (
-              <h2 className="text-xl">Loading...</h2>
             )}
           </Swiper>
         </div>
