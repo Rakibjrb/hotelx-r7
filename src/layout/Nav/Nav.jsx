@@ -2,6 +2,7 @@ import { Link, NavLink } from "react-router-dom";
 import "./nav.css";
 import User from "./User";
 import MobileDrawer from "./MobileDrawer";
+import logo from "../../assets/img/logo/logo.png";
 
 const navLinks = (
   <>
@@ -31,7 +32,12 @@ const Nav = () => {
       <div className="max-w-6xl mx-auto py-5 px-3 xl:px-0">
         <nav className="flex flex-row lg:flex-row justify-between items-center font-roboto">
           <div className="order-2 lg:order-1">
-            <h4 className="text-2xl font-bold">HotelX</h4>
+            <div className="flex items-center">
+              <img className="w-12" src={logo} alt="logo" />
+              <h3 className="text-2xl font-bold uppercase">
+                Hotel <span className="text-red-500 font-extrabold">X</span>
+              </h3>
+            </div>
           </div>
           <ul className="items-center gap-8 lg:flex lg:order-2 hidden text-xl">
             {navLinks}
@@ -42,7 +48,7 @@ const Nav = () => {
             <div className="order-3 lg:order-3">
               <Link
                 to="/user-login"
-                className="btn order-3 lg:order-3 btn-error text-white"
+                className="btn order-3 lg:order-3 bg-red-500 text-white"
               >
                 Login
               </Link>
