@@ -6,7 +6,7 @@ const Banner = () => {
       <div className="max-w-6xl mx-auto h-[700px] md:h-screen lg:h-screen xl:h-[768px] font-roboto flex items-center">
         <div className="md:w-full text-white text-center lg:w-1/2 lg:text-black lg:text-left">
           <h1 className="px-3 xl:px-0 text-5xl md:text-7xl mb-7">
-            Apartments for rent <span className="font-extrabold">Miami.</span>
+            Apartments for rent <span className="font-bold">Miami.</span>
           </h1>
           <div className="flex justify-center lg:justify-start">
             <div className="flex gap-4 items-center">

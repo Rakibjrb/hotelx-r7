@@ -1,6 +1,8 @@
-.active {
-  font-weight: 600;
-  color: red;
-  border-bottom: 3px solid red;
-  padding-bottom: 3px;
+@media screen and (min-width: 688px) {
+  .active {
+    font-weight: 600;
+    color: red;
+    border-bottom: 3px solid red;
+    padding-bottom: 3px;
+  }
 }
