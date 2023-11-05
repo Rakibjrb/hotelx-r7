@@ -16,7 +16,7 @@
     "roomSize": "400 sq ft",
     "availability": "Available",
     "roomImage": "https://i.ibb.co/mD64Z10/room1.jpg",
-    "bookingFor": "2 days",
+    "bookingFor": "1 day",
     "address": "456 Main Street, Downtown Plaza, NY"
   },
   {
@@ -26,7 +26,7 @@
     "roomSize": "600 sq ft",
     "availability": "Available",
     "roomImage": "https://i.ibb.co/mD64Z10/room1.jpg",
-    "bookingFor": "4 days",
+    "bookingFor": "1 day",
     "address": "789 Business Boulevard, Metro Center, TX"
   },
   {
@@ -36,7 +36,7 @@
     "roomSize": "550 sq ft",
     "availability": "Available",
     "roomImage": "https://i.ibb.co/mD64Z10/room1.jpg",
-    "bookingFor": "3 days",
+    "bookingFor": "1 day",
     "address": "101 Seaview Lane, Coastal Village, FL"
   },
   {
@@ -46,7 +46,7 @@
     "roomSize": "800 sq ft",
     "availability": "Available",
     "roomImage": "https://i.ibb.co/mD64Z10/room1.jpg",
-    "bookingFor": "7 days",
+    "bookingFor": "1 day",
     "address": "222 Skyline Avenue, Downtown Heights, CA"
   },
   {
@@ -56,7 +56,7 @@
     "roomSize": "300 sq ft",
     "availability": "Available",
     "roomImage": "https://i.ibb.co/mD64Z10/room1.jpg",
-    "bookingFor": "1 days",
+    "bookingFor": "1 day",
     "address": "789 City Center, Urban District, WA"
   }
 ]

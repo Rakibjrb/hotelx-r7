@@ -10,7 +10,7 @@ const TopServices = () => {
           <div className="w-24 h-2 bg-red-500 rounded-xl"></div>
         </div>
       </div>
-      <div className="w-full h-auto py-16 lg:h-72 bg-gray-400 mt-8 flex justify-center items-center">
+      <div className="w-full h-auto py-16 lg:h-72 bg-gradient-to-b from-[#00000083] to-[#525252] mt-8 flex justify-center items-center">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
           <div className="border-2 border-white rounded-md p-6 text-white hover:border-black hover:text-black hover:cursor-pointer transition-colors">
             <div className="flex justify-center mb-5">
