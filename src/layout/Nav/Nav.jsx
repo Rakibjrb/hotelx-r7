@@ -58,7 +58,7 @@ const Nav = () => {
             {navLinks}
           </ul>
           {user ? (
-            <User />
+            <User user={user} />
           ) : (
             <div className="order-3 lg:order-3">
               <Link
