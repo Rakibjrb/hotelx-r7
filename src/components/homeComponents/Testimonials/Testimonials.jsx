@@ -18,7 +18,7 @@ const Testimonials = () => {
   return (
     <div className="max-w-6xl mx-auto px-3 xl:px-0 mb-24">
       <div className="text-center">
-        <h2 className="text-4xl md:text-5xl font-bold mb-5">
+        <h2 className="text-4xl md:text-5xl capitalize mb-5">
           What our clients are saying
         </h2>
         <div className="flex justify-center">

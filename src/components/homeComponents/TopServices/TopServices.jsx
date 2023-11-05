@@ -5,9 +5,7 @@ const TopServices = () => {
   return (
     <div className="my-24 max-w-6xl mx-auto px-10 lg:px-0 font-roboto">
       <div className="text-center">
-        <h2 className="text-4xl md:text-5xl font-bold mb-5">
-          Our Top Services
-        </h2>
+        <h2 className="text-4xl md:text-5xl mb-5">Our Top Services</h2>
         <div className="flex justify-center">
           <div className="w-24 h-2 bg-red-500 rounded-xl"></div>
         </div>
