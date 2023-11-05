@@ -1,9 +1,10 @@
 import { Link, NavLink } from "react-router-dom";
+import { useContext, useEffect, useState } from "react";
 import "./nav.css";
 import User from "./User";
 import MobileDrawer from "./MobileDrawer";
 import logo from "../../assets/img/logo/logo.png";
-import { useEffect, useState } from "react";
+import { AuthContext } from "../../AuthProvider/AuthProvider";
 
 const navLinks = (
   <>
@@ -27,11 +28,11 @@ const navLinks = (
 
 const Nav = () => {
   const [sticky, setSticky] = useState(false);
-  const user = false;
+  const { user } = useContext(AuthContext);
 
   useEffect(() => {
     window.addEventListener("scroll", () => {
-      if (window.scrollY > 150) setSticky(true);
+      if (window.scrollY > 200) setSticky(true);
       else setSticky(false);
     });
   }, []);
@@ -41,7 +42,7 @@ const Nav = () => {
       id="stickyNav"
       className={`z-50 ${
         sticky ? "sticky" : "absolute"
-      } w-full top-0 bg-[#fffefe9c]`}
+      } w-full top-0 bg-[#fffefe9c] transition-all`}
     >
       <div className="max-w-6xl mx-auto py-5 px-3 xl:px-0">
         <nav className="flex flex-row lg:flex-row justify-between items-center font-roboto">
