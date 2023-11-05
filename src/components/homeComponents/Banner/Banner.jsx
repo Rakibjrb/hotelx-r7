@@ -12,7 +12,7 @@ const Banner = () => {
             <div className="flex gap-4 items-center">
               <div className="w-16 h-1 bg-red-500"></div>
               <p className="text-red-500 font-bold md:text-xl">
-                From 59$ per night
+                From 149$ per day
               </p>
             </div>
           </div>

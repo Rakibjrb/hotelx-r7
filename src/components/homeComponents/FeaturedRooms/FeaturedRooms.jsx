@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import Room from "./Room";
 
 const FeaturedRooms = () => {
@@ -34,14 +33,6 @@ const FeaturedRooms = () => {
           ) : (
             rooms?.map((room, index) => <Room key={index} room={room} />)
           )}
-        </div>
-        <div className="flex justify-center mt-8">
-          <Link
-            to="/rooms"
-            className="btn bg-red-500 text-white hover:text-black"
-          >
-            See All Rooms
-          </Link>
         </div>
       </div>
     </div>

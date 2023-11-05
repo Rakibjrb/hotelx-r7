@@ -17,7 +17,7 @@ const Room = ({ room }) => {
       <figure className="relative">
         <img src={roomImage} alt={title} />
         <h3 className="absolute top-2 right-2 text-white bg-green-500 py-1 px-4 rounded-md font-semibold">
-          {pricePerNight}$/Night
+          {pricePerNight}$/day
         </h3>
       </figure>
       <div className="card-body">
@@ -47,7 +47,7 @@ const Room = ({ room }) => {
         </div>
         <div className="card-actions justify-end">
           <button className="btn bg-red-500 w-full text-white hover:text-black">
-            Buy Now
+            Book Now
           </button>
         </div>
       </div>
