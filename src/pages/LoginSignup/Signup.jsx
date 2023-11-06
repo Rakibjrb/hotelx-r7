@@ -1,10 +1,10 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Extralogin from "./Extralogin";
-import { useContext } from "react";
-import { AuthContext } from "../../AuthProvider/AuthProvider";
+import useAuth from "../../hooks/useAuth";
 
 const Signup = () => {
-  const { createUser, updateNameAndPhoto } = useContext(AuthContext);
+  const { createUser, updateNameAndPhoto } = useAuth();
+  const navigate = useNavigate();
 
   const handleUserCreate = (e) => {
     e.preventDefault();
@@ -26,7 +26,11 @@ const Signup = () => {
     createUser(email, password)
       .then(() => {
         updateNameAndPhoto(name)
-          .then(() => console.log("account create success"))
+          .then(() => {
+            e.target.reset();
+            console.log("account create success");
+            navigate("/");
+          })
           .catch((err) => console.log(err));
       })
       .catch((err) => console.log(err));

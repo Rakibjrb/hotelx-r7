@@ -1,8 +1,7 @@
-import { useContext } from "react";
-import { AuthContext } from "../../AuthProvider/AuthProvider";
+import useAuth from "../../hooks/useAuth";
 
 const User = () => {
-  const { user, requestLogout } = useContext(AuthContext);
+  const { user, requestLogout } = useAuth();
 
   const handleLogout = () => {
     requestLogout()
