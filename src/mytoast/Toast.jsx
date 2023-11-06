@@ -10,7 +10,7 @@ function Toast() {
         show ? "top-10" : "-top-[9999px]"
       } transition-all duration-500`}
     >
-      <div className="p-4 bg-white rounded-lg border-2 border-black font-roboto">
+      <div className="p-4 bg-gradient-to-b from-[#e7e7e7] to-[#fff] rounded-lg border-2 border-black font-roboto">
         {message}
       </div>
     </div>

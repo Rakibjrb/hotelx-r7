@@ -3,6 +3,9 @@ import App from "../App";
 import Home from "../layout/Home/Home";
 import Login from "../pages/LoginSignup/Login";
 import Signup from "../pages/LoginSignup/Signup";
+import ErrorPage from "../pages/page-not-found/ErrorPage";
+import Rooms from "../pages/Rooms/Rooms";
+import MyBookings from "../pages/MyBookings/MyBookings";
 
 const router = createBrowserRouter([
   {
@@ -21,7 +24,16 @@ const router = createBrowserRouter([
         path: "/user-signup",
         element: <Signup />,
       },
+      {
+        path: "/rooms",
+        element: <Rooms />,
+      },
+      {
+        path: "/my-bookings",
+        element: <MyBookings />,
+      },
     ],
+    errorElement: <ErrorPage />,
   },
 ]);
 export default router;
