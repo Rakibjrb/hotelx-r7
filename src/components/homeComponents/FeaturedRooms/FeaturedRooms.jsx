@@ -1,17 +1,19 @@
-import { useEffect, useState } from "react";
 import Room from "./Room";
+import { useEffect } from "react";
+import { useState } from "react";
+import useAxiosSecure from "../../../hooks/useAxiosSecure";
 
 const FeaturedRooms = () => {
   const [loading, setLoading] = useState(true);
   const [rooms, setRooms] = useState([]);
 
+  const axios = useAxiosSecure();
+
   useEffect(() => {
-    fetch("./featuredRooms.json")
-      .then((res) => res.json())
-      .then((data) => {
-        setRooms(data);
-        setLoading(false);
-      });
+    axios.get("/get-rooms").then((res) => {
+      setRooms(res.data);
+      setLoading(false);
+    });
   }, []);
 
   return (
