@@ -2,10 +2,12 @@ import { Link, useNavigate } from "react-router-dom";
 import Extralogin from "./Extralogin";
 import "./loginsignup.css";
 import useAuth from "../../hooks/useAuth";
+import useToaster from "../../hooks/useToaster";
 
 const Login = () => {
   const { requestLogin } = useAuth();
   const navigate = useNavigate();
+  const { toast } = useToaster();
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -26,10 +28,12 @@ const Login = () => {
     requestLogin(email, password)
       .then(() => {
         e.target.reset();
-        console.log("login success");
-        navigate("/");
+        toast("User Login Successfull", true);
+        setTimeout(() => {
+          navigate("/");
+        }, 2000);
       })
-      .catch((err) => console.log(err));
+      .catch(() => toast("something went wrong", true));
   };
 
   return (

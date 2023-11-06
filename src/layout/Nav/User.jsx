@@ -1,11 +1,20 @@
 import useAuth from "../../hooks/useAuth";
+import { useNavigate } from "react-router-dom";
+import useToaster from "../../hooks/useToaster";
 
 const User = () => {
   const { user, requestLogout } = useAuth();
+  const { toast } = useToaster();
+  const navigate = useNavigate();
 
   const handleLogout = () => {
     requestLogout()
-      .then(() => console.log("logout success"))
+      .then(() => {
+        toast("User Log out successfull", true);
+        setTimeout(() => {
+          navigate("/");
+        }, 2000);
+      })
       .catch((err) => console.log(err));
   };
 

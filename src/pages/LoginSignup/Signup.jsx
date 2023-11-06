@@ -1,9 +1,11 @@
 import { Link, useNavigate } from "react-router-dom";
 import Extralogin from "./Extralogin";
 import useAuth from "../../hooks/useAuth";
+import useToaster from "../../hooks/useToaster";
 
 const Signup = () => {
   const { createUser, updateNameAndPhoto } = useAuth();
+  const { toast } = useToaster();
   const navigate = useNavigate();
 
   const handleUserCreate = (e) => {
@@ -28,12 +30,14 @@ const Signup = () => {
         updateNameAndPhoto(name)
           .then(() => {
             e.target.reset();
-            console.log("account create success");
-            navigate("/");
+            toast("User Account Create Success", true);
+            setTimeout(() => {
+              navigate("/");
+            }, 2000);
           })
           .catch((err) => console.log(err));
       })
-      .catch((err) => console.log(err));
+      .catch(() => toast("something went wrong", true));
   };
 
   return (

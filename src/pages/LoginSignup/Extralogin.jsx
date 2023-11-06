@@ -1,10 +1,12 @@
 import { FcGoogle } from "react-icons/fc";
 import useAuth from "../../hooks/useAuth";
 import { useNavigate } from "react-router-dom";
+import useToaster from "../../hooks/useToaster";
 
 const Extralogin = () => {
   const { googleLogin } = useAuth();
   const navigate = useNavigate();
+  const { toast } = useToaster();
 
   return (
     <div className="w-full mt-5 font-roboto">
@@ -17,10 +19,12 @@ const Extralogin = () => {
         onClick={() => {
           googleLogin()
             .then(() => {
-              console.log("loigin success");
-              navigate("/");
+              toast("Google login successfull", true);
+              setTimeout(() => {
+                navigate("/");
+              }, 2000);
             })
-            .catch((err) => console.log(err));
+            .catch(() => toast("something went wrong", true));
         }}
         className="py-2 px-3 btn w-full bg-transparent text-white hover:text-black"
       >
