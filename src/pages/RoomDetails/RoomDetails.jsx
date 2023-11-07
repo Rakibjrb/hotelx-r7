@@ -1,5 +1,5 @@
 import { FaCheck } from "react-icons/fa6";
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 import Swal from "sweetalert2";
 import moment from "moment/moment";
@@ -8,6 +8,7 @@ import useToaster from "../../hooks/useToaster";
 
 const RoomDetails = () => {
   const { data } = useLoaderData();
+  const navigate = useNavigate();
   const {
     _id,
     roomImage,
@@ -25,6 +26,10 @@ const RoomDetails = () => {
   const { toast } = useToaster();
 
   const handleRoomBook = (id, title) => {
+    if (!user) {
+      return navigate("/user-login");
+    }
+
     Swal.fire({
       title: "Click ok to confirm",
       text: title,

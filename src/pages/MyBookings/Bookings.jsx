@@ -1,8 +1,8 @@
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
 const Bookings = ({ booking }) => {
-  const { availability, bookingFor, date, pricePerNight, roomImage, title } =
-    booking;
+  const { bookingFor, date, pricePerNight, roomImage, title } = booking;
   return (
     <tr>
       <th></th>
@@ -24,7 +24,11 @@ const Bookings = ({ booking }) => {
         <br />
         <span className="badge badge-ghost badge-sm">Booked on : {date}</span>
       </td>
-      <td>{availability}</td>
+      <td>
+        <Link to="/post-review" className="btn btn-sm">
+          Post Review
+        </Link>
+      </td>
       <th>
         <button className="btn btn-xs">Cancel</button>
       </th>

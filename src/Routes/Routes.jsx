@@ -9,6 +9,7 @@ import MyBookings from "../pages/MyBookings/MyBookings";
 import RoomDetails from "../pages/RoomDetails/RoomDetails";
 import axios from "axios";
 import PrivateRoutes from "./PrivateRoutes";
+import PostReview from "../pages/PostReview/PostReview";
 
 const router = createBrowserRouter([
   {
@@ -43,15 +44,19 @@ const router = createBrowserRouter([
       },
       {
         path: "/room-details/:id",
-        element: (
-          <PrivateRoutes>
-            <RoomDetails />
-          </PrivateRoutes>
-        ),
+        element: <RoomDetails />,
         loader: ({ params }) =>
           axios.get(
             `http://localhost:5000/api/v1/get-available-rooms/${params.id}`
           ),
+      },
+      {
+        path: "/post-review",
+        element: (
+          <PrivateRoutes>
+            <PostReview />
+          </PrivateRoutes>
+        ),
       },
     ],
     errorElement: <ErrorPage />,
