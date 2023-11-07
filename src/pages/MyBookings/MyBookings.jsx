@@ -28,7 +28,8 @@ const MyBookings = () => {
                 <th className="text-xl">Room</th>
                 <th className="text-xl">Title</th>
                 <th className="text-xl">Review</th>
-                <th></th>
+                <th className="text-xl">Booking Status</th>
+                <th className="text-xl">Delete Bookings</th>
               </tr>
             </thead>
             <tbody>

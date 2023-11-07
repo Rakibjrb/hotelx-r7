@@ -2,15 +2,15 @@ import { FaCheck } from "react-icons/fa6";
 import { useLoaderData, useNavigate } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 import Swal from "sweetalert2";
-import moment from "moment/moment";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import useToaster from "../../hooks/useToaster";
 import { useState } from "react";
+import moment from "moment/moment";
 
 const RoomDetails = () => {
-  const [day, setDay] = useState("1 day");
   const { data } = useLoaderData();
   const navigate = useNavigate();
+  const [date, setDate] = useState("");
   const {
     _id,
     roomImage,
@@ -52,9 +52,9 @@ const RoomDetails = () => {
           title,
           pricePerNight,
           availability: "Booked",
-          bookingFor: day,
+          bookingDate: date ? date : moment().format("Y-M-D"),
           user: user.email,
-          date: moment().format(),
+          roomId: _id,
         };
         data[0].availability = "Booked";
         axios.post("/booking", bookingInfo).then(() => {
@@ -81,8 +81,8 @@ const RoomDetails = () => {
               {pricePerNight}$/night
             </p>
             <p>
-              <span className="font-semibold">Booking for : </span>
-              {day}
+              <span className="font-semibold">Booking on : </span>
+              {date ? date : moment().format("L")}
             </p>
           </div>
           <div className="modal-action">
@@ -121,17 +121,12 @@ const RoomDetails = () => {
             </p>
             <p>
               <span className="font-semibold mr-2">Book for :</span>
-              <select
+              <input
                 className="px-2 border-2"
-                value={day}
-                onChange={(e) => setDay(e.target.value)}
-                id=""
-              >
-                <option value="1 day">1 Day</option>
-                <option value="2 day">2 Day</option>
-                <option value="3 day">3 Day</option>
-                <option value="4 day">4 Day</option>
-              </select>
+                type="date"
+                value={date}
+                onChange={(e) => setDate(e.target.value)}
+              />
             </p>
             <p className="flex items-center gap-2">
               <span className="font-semibold">Availability : </span>

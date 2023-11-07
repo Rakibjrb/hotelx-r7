@@ -51,9 +51,9 @@ const Room = ({ room, setReload }) => {
           title,
           pricePerNight,
           availability: "Booked",
-          bookingFor,
+          bookingDate: moment().format("Y-M-D"),
           user: user.email,
-          date: moment().format(),
+          roomId: _id,
         };
         axios.post("/booking", bookingInfo).then(() => {
           axios
