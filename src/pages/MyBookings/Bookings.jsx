@@ -1,15 +1,8 @@
-import PropTypes, { object } from "prop-types";
+import PropTypes from "prop-types";
 
 const Bookings = ({ booking }) => {
-  const {
-    _id,
-    availability,
-    bookingFor,
-    date,
-    pricePerNight,
-    roomImage,
-    title,
-  } = booking;
+  const { availability, bookingFor, date, pricePerNight, roomImage, title } =
+    booking;
   return (
     <tr>
       <th></th>

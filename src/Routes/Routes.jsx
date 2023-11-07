@@ -40,8 +40,6 @@ const router = createBrowserRouter([
             <MyBookings />
           </PrivateRoutes>
         ),
-        loader: () =>
-          axios.get("http://localhost:5000/api/v1/get-booking-rooms"),
       },
       {
         path: "/room-details/:id",

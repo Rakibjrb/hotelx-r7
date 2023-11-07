@@ -1,9 +1,15 @@
 import { FaCheck } from "react-icons/fa6";
 import { useLoaderData } from "react-router-dom";
+import useAuth from "../../hooks/useAuth";
+import Swal from "sweetalert2";
+import moment from "moment/moment";
+import useAxiosSecure from "../../hooks/useAxiosSecure";
+import useToaster from "../../hooks/useToaster";
 
 const RoomDetails = () => {
   const { data } = useLoaderData();
   const {
+    _id,
     roomImage,
     title,
     address,
@@ -13,6 +19,48 @@ const RoomDetails = () => {
     availability,
     bookingFor,
   } = data[0];
+
+  const axios = useAxiosSecure();
+  const { user } = useAuth();
+  const { toast } = useToaster();
+
+  const handleRoomBook = (id, title) => {
+    Swal.fire({
+      title: "Click ok to confirm",
+      text: title,
+      icon: "question",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Confirm",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire({
+          title: "Confirmed!",
+          text: "Thank you for confirmed",
+          icon: "success",
+        });
+        const bookingInfo = {
+          roomImage,
+          title,
+          pricePerNight,
+          availability: "Booked",
+          bookingFor,
+          user: user.email,
+          date: moment().format(),
+        };
+        data[0].availability = "Booked";
+        axios.post("/booking", bookingInfo).then(() => {
+          axios
+            .patch(`/get-available-rooms/${id}`, { availability: "Booked" })
+            .then(() => {
+              toast("Room booking succesfull", true);
+            })
+            .catch(() => toast("Something went wrong ", true));
+        });
+      }
+    });
+  };
 
   return (
     <div className="max-w-3xl mx-auto px-3 xl:px-0 mt-[128px] mb-24">
@@ -55,8 +103,12 @@ const RoomDetails = () => {
             </p>
           </div>
           <div className="card-actions justify-end">
-            <button className="btn bg-red-500 w-full text-white hover:text-black">
-              Book Now
+            <button
+              onClick={() => handleRoomBook(_id, title)}
+              className="btn bg-red-500 w-full text-white hover:text-black"
+              disabled={availability === "Available" ? false : true}
+            >
+              {availability === "Available" ? "Book Now" : "Already Booked"}
             </button>
           </div>
         </div>
