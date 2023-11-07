@@ -6,12 +6,12 @@ import { useLoaderData } from "react-router-dom";
 const Rooms = () => {
   const [loading, setLoading] = useState(true);
   const [rooms, setRooms] = useState([]);
-  const [price, setPrice] = useState(0);
+  const [price, setPrice] = useState(Infinity);
   const axios = useAxiosSecure();
   const { data } = useLoaderData();
 
   useEffect(() => {
-    axios.get(`/get-available-rooms`).then((res) => {
+    axios.get(`/get-available-rooms?price=${price}`).then((res) => {
       const filtered = res.data.filter(
         (forfilter) => forfilter.pricePerNight <= price
       );
@@ -19,14 +19,6 @@ const Rooms = () => {
       setLoading(false);
     });
   }, [price]);
-
-  useEffect(() => {
-    setLoading(true);
-    axios.get(`/get-available-rooms`).then((res) => {
-      setRooms(res.data);
-      setLoading(false);
-    });
-  }, []);
 
   return (
     <div className="mt-[128px] max-w-6xl mx-auto px-3 xl:px-0 mb-24">
@@ -55,7 +47,7 @@ const Rooms = () => {
             }}
             className="border-2 border-black px-3 rounded-lg"
           >
-            <option>Select</option>
+            <option value={Infinity}>Get All</option>
             <option value="200">200$</option>
             <option value="300">300$</option>
             <option value="400">400$</option>

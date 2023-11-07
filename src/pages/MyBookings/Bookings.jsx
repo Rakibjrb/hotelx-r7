@@ -30,7 +30,7 @@ const Bookings = ({ booking }) => {
         </Link>
       </td>
       <th>
-        <button className="btn btn-xs">Cancel</button>
+        <button className="btn btn-sm">Cancel</button>
       </th>
     </tr>
   );

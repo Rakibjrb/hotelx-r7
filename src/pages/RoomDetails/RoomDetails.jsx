@@ -5,20 +5,22 @@ import Swal from "sweetalert2";
 import moment from "moment/moment";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import useToaster from "../../hooks/useToaster";
+import { useState } from "react";
 
 const RoomDetails = () => {
+  const [day, setDay] = useState("1 day");
   const { data } = useLoaderData();
   const navigate = useNavigate();
   const {
     _id,
     roomImage,
     title,
+    featured,
     address,
     roomSize,
     pricePerNight,
     roomDescription,
     availability,
-    bookingFor,
   } = data[0];
 
   const axios = useAxiosSecure();
@@ -50,7 +52,7 @@ const RoomDetails = () => {
           title,
           pricePerNight,
           availability: "Booked",
-          bookingFor,
+          bookingFor: day,
           user: user.email,
           date: moment().format(),
         };
@@ -69,6 +71,27 @@ const RoomDetails = () => {
 
   return (
     <div className="max-w-3xl mx-auto px-3 xl:px-0 mt-[128px] mb-24">
+      <dialog id="my_modal_1" className="modal">
+        <div className="modal-box">
+          <h3 className="font-bold text-lg">Booking Summary</h3>
+          <div className="py-4 space-y-2">
+            <img className="w-full h-[200px]" src={roomImage} alt="" />
+            <p>
+              <span className="font-semibold">Price : </span>
+              {pricePerNight}$/night
+            </p>
+            <p>
+              <span className="font-semibold">Booking for : </span>
+              {day}
+            </p>
+          </div>
+          <div className="modal-action">
+            <form method="dialog">
+              <button className="btn">Okay</button>
+            </form>
+          </div>
+        </div>
+      </dialog>
       <div className="text-center mb-10">
         <h2 className="text-4xl md:text-5xl capitalize mb-5">Room Details</h2>
         <div className="flex justify-center">
@@ -77,7 +100,7 @@ const RoomDetails = () => {
       </div>
       <div className="card card-compact bg-base-100 shadow-xl">
         <figure className="relative">
-          <img src={roomImage} alt={title} />
+          <img className="w-full h-[350px]" src={roomImage} alt={title} />
           <h3 className="absolute top-2 right-2 text-white bg-green-500 py-1 px-4 rounded-md font-semibold">
             {pricePerNight}$/day
           </h3>
@@ -85,6 +108,9 @@ const RoomDetails = () => {
         <div className="card-body">
           <div className="space-y-3 mb-6 h-full">
             <h2 className="text-2xl font-semibold">{title}</h2>
+            <h2 className="text-xl font-semibold">
+              Featured : {featured ? "Featured Room" : "Not Featured Room"}
+            </h2>
             <p>
               <span className="font-semibold">Room Size : </span>
               {roomSize}
@@ -95,7 +121,17 @@ const RoomDetails = () => {
             </p>
             <p>
               <span className="font-semibold mr-2">Book for :</span>
-              {bookingFor}
+              <select
+                className="px-2 border-2"
+                value={day}
+                onChange={(e) => setDay(e.target.value)}
+                id=""
+              >
+                <option value="1 day">1 Day</option>
+                <option value="2 day">2 Day</option>
+                <option value="3 day">3 Day</option>
+                <option value="4 day">4 Day</option>
+              </select>
             </p>
             <p className="flex items-center gap-2">
               <span className="font-semibold">Availability : </span>
@@ -109,7 +145,10 @@ const RoomDetails = () => {
           </div>
           <div className="card-actions justify-end">
             <button
-              onClick={() => handleRoomBook(_id, title)}
+              onClick={() => {
+                document.getElementById("my_modal_1").showModal();
+                handleRoomBook(_id, title);
+              }}
               className="btn bg-red-500 w-full text-white hover:text-black"
               disabled={availability === "Available" ? false : true}
             >

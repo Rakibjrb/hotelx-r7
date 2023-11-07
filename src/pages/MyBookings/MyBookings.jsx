@@ -18,8 +18,8 @@ const MyBookings = () => {
   return (
     <div className="mt-[88px] mb-16 max-w-6xl mx-auto px-3 xl:px-0">
       <div className="overflow-x-auto max-w-6xl">
-        {!bookings ? (
-          <h2 className="text-center text-xl">No data found</h2>
+        {loading ? (
+          "Loading your data please wait"
         ) : (
           <table className="table w-[768px] md:w-full">
             <thead>
@@ -27,7 +27,7 @@ const MyBookings = () => {
                 <th></th>
                 <th className="text-xl">Room</th>
                 <th className="text-xl">Title</th>
-                <th className="text-xl">Status</th>
+                <th className="text-xl">Review</th>
                 <th></th>
               </tr>
             </thead>
