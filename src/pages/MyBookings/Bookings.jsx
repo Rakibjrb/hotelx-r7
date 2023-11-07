@@ -5,7 +5,7 @@ import useAxiosSecure from "../../hooks/useAxiosSecure";
 import moment from "moment/moment";
 import useToaster from "../../hooks/useToaster";
 
-const Bookings = ({ booking }) => {
+const Bookings = ({ booking, handleReloadBooking }) => {
   const { _id, bookingDate, pricePerNight, roomImage, title } = booking;
   const { toast } = useToaster();
   const axios = useAxiosSecure();
@@ -31,12 +31,12 @@ const Bookings = ({ booking }) => {
             icon: "success",
           });
           axios.delete(`/delete-bookings/${id}`).then((res) => {
-            console.log(res.data);
+            if (res?.data?.updated?.deletedCount > 0) handleReloadBooking(id);
           });
         }
       });
     } else {
-      toast("Can't delete this booking", true);
+      toast("Can't delete this booking because you booked today", true);
     }
   };
   return (
@@ -67,7 +67,7 @@ const Bookings = ({ booking }) => {
         </Link>
       </td>
       <th>
-        <h3 className="btn btn-sm bg-green-500 hover:bg-green-500">Booked</h3>
+        <button className="btn btn-sm">Update Booking</button>
       </th>
       <th>
         <button onClick={() => handleBookingDelete(_id)} className="btn btn-sm">
@@ -80,5 +80,6 @@ const Bookings = ({ booking }) => {
 
 Bookings.propTypes = {
   booking: PropTypes.object,
+  handleReloadBooking: PropTypes.func,
 };
 export default Bookings;

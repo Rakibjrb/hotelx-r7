@@ -8,6 +8,12 @@ const MyBookings = () => {
   const { user } = useAuth();
   const [loading, setLoading] = useState(true);
   const [bookings, setBookings] = useState([]);
+
+  const handleReloadBooking = (id) => {
+    const filtered = bookings.filter((booking) => booking._id !== id);
+    setBookings(filtered);
+  };
+
   useEffect(() => {
     setLoading(true);
     axios.get(`/get-booking-rooms?email=${user.email}`).then((res) => {
@@ -28,13 +34,17 @@ const MyBookings = () => {
                 <th className="text-xl">Room</th>
                 <th className="text-xl">Title</th>
                 <th className="text-xl">Review</th>
-                <th className="text-xl">Booking Status</th>
+                <th className="text-xl">Update Date</th>
                 <th className="text-xl">Delete Bookings</th>
               </tr>
             </thead>
             <tbody>
               {bookings?.map((booking) => (
-                <Bookings key={booking._id} booking={booking} />
+                <Bookings
+                  key={booking._id}
+                  booking={booking}
+                  handleReloadBooking={handleReloadBooking}
+                />
               ))}
             </tbody>
           </table>
