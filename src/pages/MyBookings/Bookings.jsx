@@ -39,6 +39,13 @@ const Bookings = ({ booking, handleReloadBooking }) => {
       toast("Can't delete this booking because you booked today", true);
     }
   };
+
+  const handleUpdateBookingDate = (id) => {
+    console.log(id);
+    // axios
+    //   .patch(`/update-booking-date/${id}`, { updatedDate: "10/11/23" })
+    //   .then((res) => console.log(res));
+  };
   return (
     <tr>
       <th></th>
@@ -67,7 +74,12 @@ const Bookings = ({ booking, handleReloadBooking }) => {
         </Link>
       </td>
       <th>
-        <button className="btn btn-sm">Update Booking</button>
+        <button
+          className="btn btn-sm"
+          onClick={() => handleUpdateBookingDate(_id)}
+        >
+          Update Date
+        </button>
       </th>
       <th>
         <button onClick={() => handleBookingDelete(_id)} className="btn btn-sm">

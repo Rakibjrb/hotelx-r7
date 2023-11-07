@@ -27,7 +27,7 @@ const MyBookings = () => {
         {loading ? (
           "Loading your data please wait"
         ) : (
-          <table className="table w-[768px] md:w-full">
+          <table className="table w-[1080px] xl:w-full">
             <thead>
               <tr>
                 <th></th>
