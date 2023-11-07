@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import Extralogin from "./Extralogin";
 import "./loginsignup.css";
 import useAuth from "../../hooks/useAuth";
@@ -8,20 +8,21 @@ const Login = () => {
   const { requestLogin } = useAuth();
   const navigate = useNavigate();
   const { toast } = useToaster();
+  const location = useLocation();
 
   const handleLogin = (e) => {
     e.preventDefault();
     const email = e.target.email.value;
     const password = e.target.password.value;
     if (password.length < 6) {
-      console.log("Password must have at least 6 digit");
+      toast("Password must have at least 6 digit", true);
       return;
     } else if (!/[A-Z]/.test(password)) {
-      console.log("Password must have at least 1 Capital letter");
+      toast("Password must have at least 1 Capital letter", true);
       return;
       //eslint-disable-next-line
     } else if (!/^(?=.*[!@#$%^&*()_+{}\[\]:;<>,.?~\\-]).+$/.test(password)) {
-      console.log("Password must have 1 special character");
+      toast("Password must have 1 special character", true);
       return;
     }
 
@@ -30,7 +31,7 @@ const Login = () => {
         e.target.reset();
         toast("User Login Successfull", true);
         setTimeout(() => {
-          navigate("/");
+          navigate(location?.state ? location?.state : "/");
         }, 2000);
       })
       .catch(() => toast("something went wrong", true));

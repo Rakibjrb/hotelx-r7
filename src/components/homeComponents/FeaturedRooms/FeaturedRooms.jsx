@@ -6,15 +6,16 @@ import useAxiosSecure from "../../../hooks/useAxiosSecure";
 const FeaturedRooms = () => {
   const [loading, setLoading] = useState(true);
   const [rooms, setRooms] = useState([]);
+  const [reload, setReload] = useState(false);
 
   const axios = useAxiosSecure();
-
   useEffect(() => {
-    axios.get("/get-rooms").then((res) => {
+    setLoading(true);
+    axios.get("/get-featured-rooms").then((res) => {
       setRooms(res.data);
       setLoading(false);
     });
-  }, []);
+  }, [axios, reload]);
 
   return (
     <div className="mb-24 font-roboto">
@@ -33,7 +34,9 @@ const FeaturedRooms = () => {
               <span className="loading loading-spinner loading-lg"></span>
             </div>
           ) : (
-            rooms?.map((room, index) => <Room key={index} room={room} />)
+            rooms?.map((room, index) => (
+              <Room key={index} room={room} setReload={setReload} />
+            ))
           )}
         </div>
       </div>

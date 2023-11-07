@@ -11,7 +11,7 @@ const Rooms = () => {
   const { data } = useLoaderData();
 
   useEffect(() => {
-    axios.get(`/get-rooms`).then((res) => {
+    axios.get(`/get-available-rooms`).then((res) => {
       const filtered = res.data.filter(
         (forfilter) => forfilter.pricePerNight <= price
       );
@@ -22,23 +22,30 @@ const Rooms = () => {
 
   useEffect(() => {
     setLoading(true);
-    axios.get(`/get-rooms`).then((res) => {
+    axios.get(`/get-available-rooms`).then((res) => {
       setRooms(res.data);
       setLoading(false);
     });
   }, []);
 
   return (
-    <div className="mt-[88px] max-w-6xl mx-auto px-3 xl:px-0 mb-24">
+    <div className="mt-[128px] max-w-6xl mx-auto px-3 xl:px-0 mb-24">
       <div className="text-center mb-10">
-        <h2 className="text-4xl md:text-5xl capitalize mb-5">Our All Rooms</h2>
+        <h2 className="text-4xl md:text-5xl capitalize mb-5">
+          Our Available Rooms
+        </h2>
         <div className="flex justify-center">
           <div className="w-24 h-2 bg-red-500 rounded-xl"></div>
         </div>
       </div>
 
       <div className="flex justify-between">
-        <h2 className="text-2xl font-bold">Reviewed Rooms : {data.length}</h2>
+        <div className="flex flex-col">
+          <h2 className="text-xl font-bold">Reviewed Rooms : {data.length}</h2>
+          <h2 className="text-xl font-bold">
+            Available Rooms : {rooms.length}
+          </h2>
+        </div>
         <div className="flex items-center gap-2">
           <h2 className="text-xl font-semibold">Filter Price :</h2>
           <select

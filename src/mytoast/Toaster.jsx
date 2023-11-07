@@ -5,7 +5,7 @@ export const ToastContext = createContext();
 
 const Toaster = ({ children }) => {
   const [show, setShow] = useState(false);
-  const [message, setMessage] = useState("working");
+  const [message, setMessage] = useState("");
 
   const toast = (msg = "", isShow) => {
     setMessage(msg);

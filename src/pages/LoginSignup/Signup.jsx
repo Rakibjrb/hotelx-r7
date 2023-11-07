@@ -14,14 +14,14 @@ const Signup = () => {
     const email = e.target.email.value;
     const password = e.target.password.value;
     if (password.length < 6) {
-      console.log("Password must have at least 6 digit");
+      toast("Password must have at least 6 digit", true);
       return;
     } else if (!/[A-Z]/.test(password)) {
-      console.log("Password must have at least 1 Capital letter");
+      toast("Password must have at least 1 Capital letter", true);
       return;
       //eslint-disable-next-line
     } else if (!/^(?=.*[!@#$%^&*()_+{}\[\]:;<>,.?~\\-]).+$/.test(password)) {
-      console.log("Password must have 1 special character");
+      toast("Password must have 1 special character", true);
       return;
     }
 
