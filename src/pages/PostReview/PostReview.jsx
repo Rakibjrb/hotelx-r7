@@ -2,6 +2,7 @@ import { useNavigate } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import useToaster from "../../hooks/useToaster";
+import ReactHelmet from "../../components/commonComponents/ReactHelmet";
 
 const PostReview = () => {
   const { user } = useAuth();
@@ -63,6 +64,10 @@ const PostReview = () => {
           </form>
         </div>
       </div>
+      <ReactHelmet
+        title="Hotel X || Review Post"
+        description="Hotel X user review post after booking a room page"
+      />
     </div>
   );
 };

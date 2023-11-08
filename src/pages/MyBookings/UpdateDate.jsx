@@ -2,6 +2,7 @@ import moment from "moment";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import { useNavigate, useParams } from "react-router-dom";
 import useToaster from "../../hooks/useToaster";
+import ReactHelmet from "../../components/commonComponents/ReactHelmet";
 
 const UpdateDate = () => {
   const bookingId = useParams().id;
@@ -21,7 +22,7 @@ const UpdateDate = () => {
 
   return (
     <div className="mt-[128px] mb-24 max-w-6xl mx-auto px-3 xl:px-0">
-      <div className="hero min-h-screen">
+      <div className="hero min-h-screen lg:min-h-[300px]">
         <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
           <form onSubmit={handleUpdateBookingDate} className="card-body">
             <h2 className="text-center font-bold mb-4 text-2xl">
@@ -42,6 +43,10 @@ const UpdateDate = () => {
           </form>
         </div>
       </div>
+      <ReactHelmet
+        title="Hotel X || Booking Date Update"
+        description="Hotel X user booking date update page"
+      />
     </div>
   );
 };

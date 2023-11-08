@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import Room from "./Room";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import { useLoaderData } from "react-router-dom";
+import ReactHelmet from "../../components/commonComponents/ReactHelmet";
 
 const Rooms = () => {
   const [loading, setLoading] = useState(true);
@@ -67,6 +68,10 @@ const Rooms = () => {
           rooms?.map((room, index) => <Room key={index} room={room} />)
         )}
       </div>
+      <ReactHelmet
+        title="Hotel X || All Rooms"
+        description="Hotel X all room page"
+      />
     </div>
   );
 };

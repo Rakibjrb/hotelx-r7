@@ -3,6 +3,7 @@ import Extralogin from "./Extralogin";
 import "./loginsignup.css";
 import useAuth from "../../hooks/useAuth";
 import useToaster from "../../hooks/useToaster";
+import ReactHelmet from "../../components/commonComponents/ReactHelmet";
 
 const Login = () => {
   const { requestLogin } = useAuth();
@@ -76,6 +77,10 @@ const Login = () => {
           <Extralogin />
         </div>
       </form>
+      <ReactHelmet
+        title="Hotel X || User Login"
+        description="Hotel X login page"
+      />
     </div>
   );
 };

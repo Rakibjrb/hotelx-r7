@@ -6,6 +6,7 @@ import useAxiosSecure from "../../hooks/useAxiosSecure";
 import useToaster from "../../hooks/useToaster";
 import { useState } from "react";
 import moment from "moment/moment";
+import ReactHelmet from "../../components/commonComponents/ReactHelmet";
 
 const RoomDetails = () => {
   const { data } = useLoaderData();
@@ -152,6 +153,10 @@ const RoomDetails = () => {
           </div>
         </div>
       </div>
+      <ReactHelmet
+        title="Hotel X || Room Details"
+        description="Hotel X specific room details page"
+      />
     </div>
   );
 };

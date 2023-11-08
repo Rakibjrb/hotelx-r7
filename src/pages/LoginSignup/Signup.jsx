@@ -2,6 +2,7 @@ import { Link, useNavigate } from "react-router-dom";
 import Extralogin from "./Extralogin";
 import useAuth from "../../hooks/useAuth";
 import useToaster from "../../hooks/useToaster";
+import ReactHelmet from "../../components/commonComponents/ReactHelmet";
 
 const Signup = () => {
   const { createUser, updateNameAndPhoto } = useAuth();
@@ -83,6 +84,10 @@ const Signup = () => {
           <Extralogin />
         </div>
       </form>
+      <ReactHelmet
+        title="Hotel X || User Sign Up"
+        description="Hotel X Account creation page"
+      />
     </div>
   );
 };

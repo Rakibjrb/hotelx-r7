@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import Bookings from "./Bookings";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import useAuth from "../../hooks/useAuth";
+import ReactHelmet from "../../components/commonComponents/ReactHelmet";
 
 const MyBookings = () => {
   const axios = useAxiosSecure();
@@ -50,6 +51,10 @@ const MyBookings = () => {
           </table>
         )}
       </div>
+      <ReactHelmet
+        title="Hotel X || My Booking rooms"
+        description="Hotel X user booking room page"
+      />
     </div>
   );
 };

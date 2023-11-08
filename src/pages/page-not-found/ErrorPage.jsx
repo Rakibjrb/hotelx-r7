@@ -1,3 +1,4 @@
+import ReactHelmet from "../../components/commonComponents/ReactHelmet";
 import img from "./page-not-found.svg";
 
 const ErrorPage = () => {
@@ -11,6 +12,10 @@ const ErrorPage = () => {
           Page not found
         </h1>
       </div>
+      <ReactHelmet
+        title="Hotel X || Page not found"
+        description="Hotel X 404 page"
+      />
     </div>
   );
 };
