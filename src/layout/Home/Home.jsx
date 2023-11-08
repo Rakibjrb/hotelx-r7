@@ -1,3 +1,4 @@
+import ReactHelmet from "../../components/commonComponents/ReactHelmet";
 import Banner from "../../components/homeComponents/Banner/Banner";
 import FeaturedRooms from "../../components/homeComponents/FeaturedRooms/FeaturedRooms";
 import Newsletter from "../../components/homeComponents/Newsletter/Newsletter";
@@ -8,6 +9,7 @@ import TopServices from "../../components/homeComponents/TopServices/TopServices
 const Home = () => {
   return (
     <div>
+      <ReactHelmet title="Hotel X || Home" />
       <Banner />
       <TopServices />
       <FeaturedRooms />
