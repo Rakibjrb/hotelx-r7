@@ -10,6 +10,7 @@ import RoomDetails from "../pages/RoomDetails/RoomDetails";
 import axios from "axios";
 import PrivateRoutes from "./PrivateRoutes";
 import PostReview from "../pages/PostReview/PostReview";
+import UpdateDate from "../pages/MyBookings/UpdateDate";
 
 const router = createBrowserRouter([
   {
@@ -55,6 +56,14 @@ const router = createBrowserRouter([
         element: (
           <PrivateRoutes>
             <PostReview />
+          </PrivateRoutes>
+        ),
+      },
+      {
+        path: "/date-update/:id",
+        element: (
+          <PrivateRoutes>
+            <UpdateDate />
           </PrivateRoutes>
         ),
       },

@@ -70,6 +70,27 @@ const Room = ({ room, setReload }) => {
 
   return (
     <div className="card card-compact bg-base-100 shadow-xl">
+      <dialog id="my_modal_1" className="modal">
+        <div className="modal-box">
+          <h3 className="font-bold text-lg">Booking Summary</h3>
+          <div className="py-4 space-y-2">
+            <img className="w-full h-[200px]" src={roomImage} alt="" />
+            <p>
+              <span className="font-semibold">Price : </span>
+              {pricePerNight}$/night
+            </p>
+            <p>
+              <span className="font-semibold">Booking on : </span>
+              {moment().format("Y-M-D")}
+            </p>
+          </div>
+          <div className="modal-action">
+            <form method="dialog">
+              <button className="btn">Okay</button>
+            </form>
+          </div>
+        </div>
+      </dialog>
       <figure className="relative">
         <img src={roomImage} alt={title} />
         <h3 className="absolute top-2 right-2 text-white bg-green-500 py-1 px-4 rounded-md font-semibold">
@@ -110,7 +131,10 @@ const Room = ({ room, setReload }) => {
         </div>
         <div className="card-actions justify-end">
           <button
-            onClick={() => handleFeaturedRoomBook(_id, title)}
+            onClick={() => {
+              document.getElementById("my_modal_1").showModal();
+              handleFeaturedRoomBook(_id, title);
+            }}
             className="btn bg-red-500 w-full text-white hover:text-black"
             disabled={availability === "Available" ? false : true}
           >

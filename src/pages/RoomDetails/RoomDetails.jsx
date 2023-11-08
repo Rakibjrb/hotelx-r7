@@ -82,7 +82,7 @@ const RoomDetails = () => {
             </p>
             <p>
               <span className="font-semibold">Booking on : </span>
-              {date ? date : moment().format("L")}
+              {date ? date : moment().format("Y-M-D")}
             </p>
           </div>
           <div className="modal-action">

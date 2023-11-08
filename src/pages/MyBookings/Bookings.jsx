@@ -40,12 +40,6 @@ const Bookings = ({ booking, handleReloadBooking }) => {
     }
   };
 
-  const handleUpdateBookingDate = (id) => {
-    console.log(id);
-    // axios
-    //   .patch(`/update-booking-date/${id}`, { updatedDate: "10/11/23" })
-    //   .then((res) => console.log(res));
-  };
   return (
     <tr>
       <th></th>
@@ -74,12 +68,9 @@ const Bookings = ({ booking, handleReloadBooking }) => {
         </Link>
       </td>
       <th>
-        <button
-          className="btn btn-sm"
-          onClick={() => handleUpdateBookingDate(_id)}
-        >
+        <Link to={`/date-update/${_id}`} className="btn btn-sm">
           Update Date
-        </button>
+        </Link>
       </th>
       <th>
         <button onClick={() => handleBookingDelete(_id)} className="btn btn-sm">
