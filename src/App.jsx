@@ -5,7 +5,7 @@ import Toast from "./mytoast/Toast";
 
 const App = () => {
   return (
-    <div>
+    <div data-theme="light">
       <Toast />
       <Nav />
       <Outlet />

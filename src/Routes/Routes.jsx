@@ -11,6 +11,8 @@ import axios from "axios";
 import PrivateRoutes from "./PrivateRoutes";
 import PostReview from "../pages/PostReview/PostReview";
 import UpdateDate from "../pages/MyBookings/UpdateDate";
+import Faq from "../pages/Faq/Faq";
+import Contactus from "../pages/Contactus/Contactus";
 
 const router = createBrowserRouter([
   {
@@ -28,6 +30,14 @@ const router = createBrowserRouter([
       {
         path: "/user-signup",
         element: <Signup />,
+      },
+      {
+        path: "/faqs",
+        element: <Faq />,
+      },
+      {
+        path: "/contact",
+        element: <Contactus />,
       },
       {
         path: "/rooms",

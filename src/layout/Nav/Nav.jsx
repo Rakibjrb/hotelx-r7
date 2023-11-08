@@ -23,6 +23,17 @@ const navLinks = (
         My Bookings
       </NavLink>
     </li>
+    <li>
+      <NavLink to="/faqs" className="links">
+        Faq
+      </NavLink>
+    </li>
+
+    <li>
+      <NavLink to="/contact" className="links">
+        Contact Us
+      </NavLink>
+    </li>
   </>
 );
 
