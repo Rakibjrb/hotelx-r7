@@ -97,7 +97,7 @@ const Room = ({ room, setReload }) => {
         className="card card-compact bg-base-100 shadow-xl rounded-xl"
       >
         <figure className="relative">
-          <img src={roomImage} alt={title} />
+          <img className="w-full h-[241px]" src={roomImage} alt={title} />
           <h3 className="absolute top-2 right-2 text-white bg-green-500 py-1 px-4 rounded-md font-semibold">
             {pricePerNight}$/day
           </h3>

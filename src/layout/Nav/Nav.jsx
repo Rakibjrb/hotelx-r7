@@ -46,13 +46,13 @@ const Nav = () => {
       if (window.scrollY > 200) setSticky(true);
       else setSticky(false);
     });
-  }, []);
+  }, [sticky]);
 
   return (
     <div
       id="stickyNav"
       className={`z-50 ${
-        sticky ? "sticky" : "absolute"
+        sticky ? "fixed" : "absolute"
       } w-full top-0 bg-[#fffefe9c] transition-all`}
     >
       <div className="max-w-6xl mx-auto py-5 px-3 xl:px-0">

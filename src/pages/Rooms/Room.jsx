@@ -7,7 +7,11 @@ const Room = ({ room }) => {
   return (
     <Link to={`/room-details/${_id}`}>
       <div className="relative effect-of overflow-hidden rounded-lg">
-        <img className="rounded-xl" src={roomImage} alt={title} />
+        <img
+          className="rounded-xl w-full h-[241px]"
+          src={roomImage}
+          alt={title}
+        />
         <div className="absolute left-0 w-full h-full bg-[#00000067] effect-on transition-all duration-300">
           <h2 className="text-white text-2xl font-roboto absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
             View Details
