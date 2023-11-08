@@ -67,10 +67,12 @@ const AuthProvider = ({ children }) => {
       setUser(currentUser);
       setIsLoading(false);
 
-      updateProfile(auth.currentUser, {
-        displayName: currentUser.displayName,
-        photoURL: currentUser.photoURL,
-      });
+      if (currentUser) {
+        updateProfile(auth.currentUser, {
+          displayName: currentUser.displayName,
+          photoURL: currentUser.photoURL,
+        });
+      }
 
       //token generate part
       if (currentUser) {

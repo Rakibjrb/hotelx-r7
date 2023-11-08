@@ -4,14 +4,23 @@ import useAuth from "../../hooks/useAuth";
 import Swal from "sweetalert2";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import useToaster from "../../hooks/useToaster";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import moment from "moment/moment";
 import ReactHelmet from "../../components/commonComponents/ReactHelmet";
+import { Navigation } from "swiper/modules";
+import { Swiper, SwiperSlide } from "swiper/react";
+import Reviews from "./Reviews";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import "swiper/css/scrollbar";
+import ReviewsMobile from "./ReviewsMobile";
 
 const RoomDetails = () => {
   const { data } = useLoaderData();
   const navigate = useNavigate();
   const [date, setDate] = useState("");
+  const [reviews, setReviews] = useState([]);
   const {
     _id,
     roomImage,
@@ -70,6 +79,12 @@ const RoomDetails = () => {
     });
   };
 
+  useEffect(() => {
+    axios.get("/get-testimonials").then((res) => {
+      setReviews(res.data);
+    });
+  }, []);
+
   return (
     <div className="max-w-3xl mx-auto px-3 xl:px-0 mt-[128px] mb-24">
       <dialog id="my_modal_1" className="modal">
@@ -102,7 +117,7 @@ const RoomDetails = () => {
       <div className="card card-compact bg-base-100 shadow-xl">
         <figure className="relative">
           <img className="w-full h-[350px]" src={roomImage} alt={title} />
-          <h3 className="absolute top-2 right-2 text-white bg-green-500 py-1 px-4 rounded-md font-semibold">
+          <h3 className="absolute top-2 right-2 text-white text-xl bg-green-500 py-2 px-6 rounded-md font-semibold">
             {pricePerNight}$/day
           </h3>
         </figure>
@@ -154,6 +169,51 @@ const RoomDetails = () => {
         </div>
       </div>
       <ReactHelmet title="Hotel X || Room Details" />
+
+      <div className="mt-16">
+        <div className="text-center mb-10">
+          <h2 className="text-3xl md:text-4xl capitalize mb-5">
+            Customer Reviews
+          </h2>
+          <div className="flex justify-center">
+            <div className="w-24 h-2 bg-red-500 rounded-xl"></div>
+          </div>
+        </div>
+        <div className="md:hidden px-5">
+          <Swiper
+            modules={[Navigation]}
+            spaceBetween={10}
+            slidesPerView={1}
+            navigation
+            pagination={{ clickable: true }}
+          >
+            <div className="">
+              {reviews?.map((review) => (
+                <SwiperSlide key={review._id}>
+                  <ReviewsMobile review={review} />
+                </SwiperSlide>
+              ))}
+            </div>
+          </Swiper>
+        </div>
+        <div className="hidden md:flex px-5">
+          <Swiper
+            modules={[Navigation]}
+            spaceBetween={20}
+            slidesPerView={2}
+            navigation
+            pagination={{ clickable: true }}
+          >
+            <div className="">
+              {reviews?.map((review) => (
+                <SwiperSlide key={review._id}>
+                  <Reviews review={review} />
+                </SwiperSlide>
+              ))}
+            </div>
+          </Swiper>
+        </div>
+      </div>
     </div>
   );
 };

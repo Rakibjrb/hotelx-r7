@@ -16,7 +16,7 @@ const PostReview = () => {
       userImage: user.photoURL,
       name: user.displayName,
       occupation: e.target.occupation.value,
-      message: e.target.message.value,
+      testimonial: e.target.message.value,
     };
 
     axios.post("/postTestimonials", testimonials).then((res) => {
