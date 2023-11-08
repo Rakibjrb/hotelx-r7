@@ -43,7 +43,9 @@ const router = createBrowserRouter([
         path: "/rooms",
         element: <Rooms />,
         loader: () =>
-          axios.get("http://localhost:5000/api/v1/get-testimonials"),
+          axios.get(
+            "https://hotel-x-server-eight.vercel.app/api/v1/get-testimonials"
+          ),
       },
       {
         path: "/my-bookings",
@@ -58,7 +60,7 @@ const router = createBrowserRouter([
         element: <RoomDetails />,
         loader: ({ params }) =>
           axios.get(
-            `http://localhost:5000/api/v1/get-available-rooms/${params.id}`
+            `https://hotel-x-server-eight.vercel.app/api/v1/get-available-rooms/${params.id}`
           ),
       },
       {
