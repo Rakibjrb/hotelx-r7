@@ -66,6 +66,12 @@ const AuthProvider = ({ children }) => {
     const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
       setIsLoading(false);
+
+      updateProfile(auth.currentUser, {
+        displayName: currentUser.displayName,
+        photoURL: currentUser.photoURL,
+      });
+
       //token generate part
       if (currentUser) {
         const loggedUser = { email: currentUser.email };

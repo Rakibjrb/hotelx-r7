@@ -32,7 +32,6 @@ const MyBookings = () => {
         setLoading(false);
       });
   }, [axios]);
-  console.log(bookings);
   return (
     <div className="mt-[88px] mb-16 max-w-6xl mx-auto px-3 xl:px-0">
       <div className="overflow-x-auto max-w-6xl">
