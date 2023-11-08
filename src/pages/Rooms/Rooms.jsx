@@ -68,10 +68,7 @@ const Rooms = () => {
           rooms?.map((room, index) => <Room key={index} room={room} />)
         )}
       </div>
-      <ReactHelmet
-        title="Hotel X || All Rooms"
-        description="Hotel X all room page"
-      />
+      <ReactHelmet title="Hotel X || All Rooms" />
     </div>
   );
 };

@@ -51,10 +51,7 @@ const MyBookings = () => {
           </table>
         )}
       </div>
-      <ReactHelmet
-        title="Hotel X || My Booking rooms"
-        description="Hotel X user booking room page"
-      />
+      <ReactHelmet title="Hotel X || My Booking rooms" />
     </div>
   );
 };

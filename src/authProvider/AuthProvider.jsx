@@ -10,12 +10,14 @@ import {
   signOut,
   updateProfile,
 } from "firebase/auth";
+import useAxiosSecure from "../hooks/useAxiosSecure";
 
 export const AuthContext = createContext(null);
 
 const googleAuthProvider = new GoogleAuthProvider();
 
 const AuthProvider = ({ children }) => {
+  const axios = useAxiosSecure();
   const [isLoading, setIsLoading] = useState(true);
   const [user, setUser] = useState();
 
@@ -64,6 +66,13 @@ const AuthProvider = ({ children }) => {
     const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
       setIsLoading(false);
+      //token generate part
+      if (currentUser) {
+        const loggedUser = { email: currentUser.email };
+        axios
+          .post("/create-token", loggedUser)
+          .then((res) => console.log(res.data));
+      }
     });
     () => unSubscribe();
   }, []);

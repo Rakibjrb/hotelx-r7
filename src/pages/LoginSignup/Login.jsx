@@ -77,10 +77,7 @@ const Login = () => {
           <Extralogin />
         </div>
       </form>
-      <ReactHelmet
-        title="Hotel X || User Login"
-        description="Hotel X login page"
-      />
+      <ReactHelmet title="Hotel X || User Login" />
     </div>
   );
 };

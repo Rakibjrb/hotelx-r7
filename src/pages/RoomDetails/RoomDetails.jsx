@@ -153,10 +153,7 @@ const RoomDetails = () => {
           </div>
         </div>
       </div>
-      <ReactHelmet
-        title="Hotel X || Room Details"
-        description="Hotel X specific room details page"
-      />
+      <ReactHelmet title="Hotel X || Room Details" />
     </div>
   );
 };
