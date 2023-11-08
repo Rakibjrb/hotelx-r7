@@ -14,7 +14,7 @@ const Bookings = ({ booking, handleReloadBooking }) => {
     const cancelDate = moment().format("Y-M-D");
     const formated = moment(cancelDate, "Y-M-D");
 
-    if (formated.isBefore(bookedOn)) {
+    if (bookedOn.diff(formated, "days") > 1) {
       Swal.fire({
         title: "Are you sure?",
         text: "You won't be able to revert this!",
@@ -36,7 +36,7 @@ const Bookings = ({ booking, handleReloadBooking }) => {
         }
       });
     } else {
-      toast("Can't delete this booking because you booked today", true);
+      toast("Can't delete this booking before 1 day", true);
     }
   };
 

@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 const Reviews = ({ review }) => {
   const { _id, testimonial, name, occupation, userImage } = review;
   return (
-    <div className="h-full">
+    <div className="h-full px-14">
       <div className="flex gap-2">
         <img className="w-12 h-12 rounded-full" src={userImage} alt={name} />
         <div>
@@ -11,7 +11,7 @@ const Reviews = ({ review }) => {
           <h3>{occupation}</h3>
         </div>
       </div>
-      <p className="my-4">{testimonial}</p>
+      <p className="my-4 text-justify">{testimonial}</p>
       <div className="rating">
         <input
           type="radio"
