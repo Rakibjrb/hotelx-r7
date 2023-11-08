@@ -2,6 +2,7 @@ import Banner from "../../components/homeComponents/Banner/Banner";
 import FeaturedRooms from "../../components/homeComponents/FeaturedRooms/FeaturedRooms";
 import Newsletter from "../../components/homeComponents/Newsletter/Newsletter";
 import OurLocation from "../../components/homeComponents/OurLocation/OurLocation";
+import SpacialOffers from "../../components/homeComponents/SpacialOffers/SpacialOffers";
 import TopServices from "../../components/homeComponents/TopServices/TopServices";
 
 const Home = () => {
@@ -10,6 +11,7 @@ const Home = () => {
       <Banner />
       <TopServices />
       <FeaturedRooms />
+      <SpacialOffers />
       <OurLocation />
       <Newsletter />
     </div>

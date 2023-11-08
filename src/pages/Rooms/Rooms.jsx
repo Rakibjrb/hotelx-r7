@@ -32,8 +32,8 @@ const Rooms = () => {
         </div>
       </div>
 
-      <div className="flex justify-between">
-        <div className="flex flex-col">
+      <div className="flex flex-col md:flex-row gap-4 md:gap-0 justify-between">
+        <div className="flex flex-col gap-2">
           <h2 className="text-xl font-bold">Reviewed Rooms : {data.length}</h2>
           <h2 className="text-xl font-bold">
             Available Rooms : {rooms.length}
