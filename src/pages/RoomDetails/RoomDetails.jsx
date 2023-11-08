@@ -14,7 +14,6 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
-import ReviewsMobile from "./ReviewsMobile";
 
 const RoomDetails = () => {
   const { data } = useLoaderData();
@@ -168,7 +167,7 @@ const RoomDetails = () => {
           </div>
         </div>
       </div>
-      <ReactHelmet title="Hotel X || Room Details" />
+      <ReactHelmet title="Hotel X | Room Details" />
 
       <div className="mt-16">
         <div className="text-center mb-10">
@@ -179,32 +178,15 @@ const RoomDetails = () => {
             <div className="w-24 h-2 bg-red-500 rounded-xl"></div>
           </div>
         </div>
-        <div className="md:hidden px-5">
+        <div>
           <Swiper
             modules={[Navigation]}
-            spaceBetween={10}
+            spaceBetween={20}
             slidesPerView={1}
             navigation
             pagination={{ clickable: true }}
           >
-            <div className="">
-              {reviews?.map((review) => (
-                <SwiperSlide key={review._id}>
-                  <ReviewsMobile review={review} />
-                </SwiperSlide>
-              ))}
-            </div>
-          </Swiper>
-        </div>
-        <div className="hidden md:flex px-5">
-          <Swiper
-            modules={[Navigation]}
-            spaceBetween={20}
-            slidesPerView={2}
-            navigation
-            pagination={{ clickable: true }}
-          >
-            <div className="">
+            <div className="px-10">
               {reviews?.map((review) => (
                 <SwiperSlide key={review._id}>
                   <Reviews review={review} />

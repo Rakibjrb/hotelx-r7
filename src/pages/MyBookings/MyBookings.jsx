@@ -68,7 +68,7 @@ const MyBookings = () => {
         )}
       </div>
 
-      <ReactHelmet title="Hotel X || My Booking rooms" />
+      <ReactHelmet title="Hotel X | My Booking rooms" />
     </div>
   );
 };

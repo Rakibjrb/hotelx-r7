@@ -9,7 +9,7 @@ import TopServices from "../../components/homeComponents/TopServices/TopServices
 const Home = () => {
   return (
     <div>
-      <ReactHelmet title="Hotel X || Home" />
+      <ReactHelmet title="Hotel X | Home" />
       <Banner />
       <TopServices />
       <FeaturedRooms />

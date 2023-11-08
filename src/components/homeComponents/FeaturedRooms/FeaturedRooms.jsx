@@ -20,7 +20,12 @@ const FeaturedRooms = () => {
   return (
     <div className="mb-24 font-roboto">
       <div className="max-w-6xl mx-auto px-3 xl:px-0">
-        <div className="text-center">
+        <div
+          data-aos="fade-up"
+          data-aos-easing="linear"
+          data-aos-duration="1000"
+          className="text-center"
+        >
           <h2 className="text-4xl md:text-5xl capitalize mb-5">
             Our Featured Rooms
           </h2>

@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import footerImg from "../../assets/img/logo/logo.png";
 
 const Footer = () => {
@@ -27,7 +28,9 @@ const Footer = () => {
         <nav>
           <header className="footer-title">Company</header>
           <a className="link link-hover">About us</a>
-          <a className="link link-hover">Contact</a>
+          <Link to="/contact" className="link link-hover">
+            Contact
+          </Link>
           <a className="link link-hover">Jobs</a>
           <a className="link link-hover">Press kit</a>
         </nav>

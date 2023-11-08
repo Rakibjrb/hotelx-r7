@@ -69,7 +69,7 @@ const Room = ({ room, setReload }) => {
   };
 
   return (
-    <div className="card card-compact bg-base-100 shadow-xl">
+    <>
       <dialog id="my_modal_1" className="modal">
         <div className="modal-box">
           <h3 className="font-bold text-lg">Booking Summary</h3>
@@ -91,58 +91,64 @@ const Room = ({ room, setReload }) => {
           </div>
         </div>
       </dialog>
-      <figure className="relative">
-        <img src={roomImage} alt={title} />
-        <h3 className="absolute top-2 right-2 text-white bg-green-500 py-1 px-4 rounded-md font-semibold">
-          {pricePerNight}$/day
-        </h3>
-      </figure>
-      <div className="card-body">
-        <div className="space-y-2 mb-6 h-full">
-          <h2 className="text-2xl font-semibold">{title}</h2>
-          <p className="text-justify">{roomDescription}</p>
-          <p>
-            <span className="font-semibold">Room Size : </span>
-            {roomSize}
-          </p>
-          <p>
-            <span className="font-semibold mr-2">Book for :</span>
-            {bookingFor}
-          </p>
-          <div>
-            {availability === "Available" ? (
-              <p className="flex items-center gap-2">
-                <span className="font-semibold">Availability : </span>
-                {availability}
-                <FaCheck className="text-xl text-green-500" />
-              </p>
-            ) : (
-              <p className="flex items-center gap-2">
-                <span className="font-semibold">Availability : </span>
-                Not Available Now
-                <RxCross2 className="text-xl text-red-500" />
-              </p>
-            )}
+      <div
+        data-aos="zoom-in-up"
+        data-aos-duration="1000"
+        className="card card-compact bg-base-100 shadow-xl rounded-xl"
+      >
+        <figure className="relative">
+          <img src={roomImage} alt={title} />
+          <h3 className="absolute top-2 right-2 text-white bg-green-500 py-1 px-4 rounded-md font-semibold">
+            {pricePerNight}$/day
+          </h3>
+        </figure>
+        <div className="card-body">
+          <div className="space-y-2 mb-6 h-full">
+            <h2 className="text-2xl font-semibold">{title}</h2>
+            <p className="text-justify">{roomDescription}</p>
+            <p>
+              <span className="font-semibold">Room Size : </span>
+              {roomSize}
+            </p>
+            <p>
+              <span className="font-semibold mr-2">Book for :</span>
+              {bookingFor}
+            </p>
+            <div>
+              {availability === "Available" ? (
+                <p className="flex items-center gap-2">
+                  <span className="font-semibold">Availability : </span>
+                  {availability}
+                  <FaCheck className="text-xl text-green-500" />
+                </p>
+              ) : (
+                <p className="flex items-center gap-2">
+                  <span className="font-semibold">Availability : </span>
+                  Not Available Now
+                  <RxCross2 className="text-xl text-red-500" />
+                </p>
+              )}
+            </div>
+            <p>
+              <span className="font-semibold">Location : </span>
+              {address}
+            </p>
           </div>
-          <p>
-            <span className="font-semibold">Location : </span>
-            {address}
-          </p>
-        </div>
-        <div className="card-actions justify-end">
-          <button
-            onClick={() => {
-              document.getElementById("my_modal_1").showModal();
-              handleFeaturedRoomBook(_id, title);
-            }}
-            className="btn bg-red-500 w-full text-white hover:text-black"
-            disabled={availability === "Available" ? false : true}
-          >
-            {availability === "Available" ? "Book Now" : "Not Available"}
-          </button>
+          <div className="card-actions justify-end">
+            <button
+              onClick={() => {
+                document.getElementById("my_modal_1").showModal();
+                handleFeaturedRoomBook(_id, title);
+              }}
+              className="btn bg-red-500 w-full text-white hover:text-black"
+              disabled={availability === "Available" ? false : true}
+            >
+              {availability === "Available" ? "Book Now" : "Not Available"}
+            </button>
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

@@ -2,7 +2,7 @@ import newsLetter from "../../../assets/icons/newsLetter.svg";
 
 const Newsletter = () => {
   return (
-    <div className="bg-red-400">
+    <div data-aos="flip-left" data-aos-duration="1500" className="bg-red-400">
       <div className="max-w-6xl mx-auto px-3 xl:px-0 mb-24 py-14">
         <div className="flex flex-col-reverse md:flex-row gap-10 md:gap-0">
           <div className="flex-[2]">

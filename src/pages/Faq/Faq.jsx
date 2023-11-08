@@ -3,7 +3,7 @@ import ReactHelmet from "../../components/commonComponents/ReactHelmet";
 const Faq = () => {
   return (
     <div className="max-w-3xl mx-auto px-3 xl:px-0 mt-[128px] mb-16">
-      <ReactHelmet title="Hotel X || FAQ" />
+      <ReactHelmet title="Hotel X | FAQ" />
       <div className="text-center">
         <h2 className="text-4xl md:text-5xl capitalize mb-5">FAQ</h2>
         <div className="flex justify-center">

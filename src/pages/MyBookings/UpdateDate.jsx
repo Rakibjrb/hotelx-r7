@@ -43,7 +43,7 @@ const UpdateDate = () => {
           </form>
         </div>
       </div>
-      <ReactHelmet title="Hotel X || Booking Date Update" />
+      <ReactHelmet title="Hotel X | Booking Date Update" />
     </div>
   );
 };

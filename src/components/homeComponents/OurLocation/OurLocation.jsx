@@ -4,7 +4,12 @@ const OurLocation = () => {
   return (
     <div className="max-w-6xl mx-auto font-roboto mb-24">
       <div className="flex items-center flex-col md:flex-row gap-8 md:gap-0">
-        <div className="md:flex-1">
+        <div
+          data-aos="fade-up"
+          data-aos-anchor-placement="center-bottom"
+          data-aos-duration="1000"
+          className="md:flex-1"
+        >
           <div className="lg:w-4/5">
             <div>
               <h2 className="text-4xl capitalize mb-5 font-semibold">
@@ -24,7 +29,12 @@ const OurLocation = () => {
             </p>
           </div>
         </div>
-        <div className="w-full h-[350px] md:flex-1">
+        <div
+          data-aos="fade-down"
+          data-aos-anchor-placement="center-bottom"
+          data-aos-duration="1000"
+          className="w-full h-[350px] md:flex-1"
+        >
           <MapComponent />
         </div>
       </div>

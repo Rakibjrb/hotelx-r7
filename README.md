@@ -1,4 +1,4 @@
-# React + Vite
+## React + Vite
 
 # Name : Hotel X
 
@@ -8,9 +8,10 @@
 
 ## About This Project
 
+1. Animate on scroll using aos
 1. Used JSONWEBTOKEN for secure api
 1. Used Firebase authentication system for manage users
-1. Google map for view live location
+1. Google map for view google map location
 1. Custom maded toast and sweetalert2 used for only confirmation after delete or book a room
 1. Dynamic page title change using react helmet
 1. User can filter rooms by choosing price range

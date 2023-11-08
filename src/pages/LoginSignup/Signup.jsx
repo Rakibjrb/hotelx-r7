@@ -84,7 +84,7 @@ const Signup = () => {
           <Extralogin />
         </div>
       </form>
-      <ReactHelmet title="Hotel X || User Sign Up" />
+      <ReactHelmet title="Hotel X | User Sign Up" />
     </div>
   );
 };

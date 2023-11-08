@@ -11,7 +11,11 @@ import Image2 from "../../../assets/img/SpacialOffers/bannerImage2.jpg";
 const SpacialOffers = () => {
   return (
     <div className="max-w-6xl mb-24 mx-auto px-3 xl:px-0">
-      <div className="text-center">
+      <div
+        data-aos="zoom-in-up"
+        data-aos-duration="1500"
+        className="text-center"
+      >
         <h2 className="text-4xl md:text-5xl capitalize mb-5">
           Special Offers and Promotions
         </h2>
@@ -20,7 +24,7 @@ const SpacialOffers = () => {
         </div>
       </div>
 
-      <div className="mt-10">
+      <div data-aos="zoom-in-down" data-aos-duration="1500" className="mt-10">
         <Swiper
           // install Swiper modules
           modules={[Navigation, Pagination]}

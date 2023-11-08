@@ -64,7 +64,7 @@ const PostReview = () => {
           </form>
         </div>
       </div>
-      <ReactHelmet title="Hotel X || Review Post" />
+      <ReactHelmet title="Hotel X | Review Post" />
     </div>
   );
 };

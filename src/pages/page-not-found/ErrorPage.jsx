@@ -12,7 +12,7 @@ const ErrorPage = () => {
           Page not found
         </h1>
       </div>
-      <ReactHelmet title="Hotel X || Page not found" />
+      <ReactHelmet title="Hotel X | Page not found" />
     </div>
   );
 };
