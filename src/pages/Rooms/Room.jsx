@@ -1,9 +1,10 @@
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
+import { FaCheck } from "react-icons/fa6";
 import "./room.css";
 
 const Room = ({ room }) => {
-  const { _id, roomImage, title } = room;
+  const { _id, roomImage, title, availability } = room;
   return (
     <Link to={`/room-details/${_id}`}>
       <div className="relative effect-of overflow-hidden rounded-lg">
@@ -17,6 +18,14 @@ const Room = ({ room }) => {
             View Details
           </h2>
         </div>
+      </div>
+      <div className="shadow-xl p-3 rounded-lg">
+        <h2 className="text-2xl font-bold">{title}</h2>
+        <p className="flex items-center gap-2">
+          <span className="font-semibold">Availability : </span>
+          {availability}
+          <FaCheck className="text-xl text-green-500" />
+        </p>
       </div>
     </Link>
   );

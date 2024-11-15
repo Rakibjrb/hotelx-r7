@@ -7,18 +7,19 @@ import ReactHelmet from "../../components/commonComponents/ReactHelmet";
 const Rooms = () => {
   const [loading, setLoading] = useState(true);
   const [rooms, setRooms] = useState([]);
-  const [price, setPrice] = useState(Infinity);
+  const [price, setPrice] = useState(1000);
   const axios = useAxiosSecure();
   const { data } = useLoaderData();
 
   useEffect(() => {
     axios.get(`/get-available-rooms?price=${price}`).then((res) => {
-      const filtered = res.data.filter(
+      const filtered = res?.data.filter(
         (forfilter) => forfilter.pricePerNight <= price
       );
       setRooms(filtered);
       setLoading(false);
     });
+    //eslint-disable-next-line
   }, [price]);
 
   return (
@@ -48,7 +49,6 @@ const Rooms = () => {
             }}
             className="border-2 border-black px-3 rounded-lg"
           >
-            <option value={Infinity}>Get All</option>
             <option value="200">200$</option>
             <option value="300">300$</option>
             <option value="400">400$</option>

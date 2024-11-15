@@ -22,12 +22,12 @@ const Bookings = ({ booking, handleReloadBooking }) => {
         showCancelButton: true,
         confirmButtonColor: "#3085d6",
         cancelButtonColor: "#d33",
-        confirmButtonText: "Yes, delete it!",
+        confirmButtonText: "Yes, cancel booking",
       }).then((result) => {
         if (result.isConfirmed) {
           Swal.fire({
             title: "Deleted!",
-            text: "Your file has been deleted.",
+            text: "Booking successfully cancelled",
             icon: "success",
           });
           axios.delete(`/delete-bookings/${id}`).then((res) => {
@@ -51,7 +51,7 @@ const Bookings = ({ booking, handleReloadBooking }) => {
             </div>
           </div>
           <div>
-            <div className="font-bold">Price : {pricePerNight}</div>
+            <div className="font-bold">Price : ${pricePerNight}</div>
           </div>
         </div>
       </td>
@@ -63,18 +63,21 @@ const Bookings = ({ booking, handleReloadBooking }) => {
         </span>
       </td>
       <td>
-        <Link to="/post-review" className="btn btn-sm">
+        <Link to="/post-review" className="btn btn-sm btn-success">
           Post Review
         </Link>
       </td>
       <th>
-        <Link to={`/date-update/${_id}`} className="btn btn-sm">
+        <Link to={`/date-update/${_id}`} className="btn btn-sm btn-warning">
           Update Date
         </Link>
       </th>
       <th>
-        <button onClick={() => handleBookingDelete(_id)} className="btn btn-sm">
-          Delete
+        <button
+          onClick={() => handleBookingDelete(_id)}
+          className="btn btn-sm btn-error"
+        >
+          Cancel Now
         </button>
       </th>
     </tr>

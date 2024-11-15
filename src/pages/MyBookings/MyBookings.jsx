@@ -48,7 +48,7 @@ const MyBookings = () => {
                     <th className="text-xl">Title</th>
                     <th className="text-xl">Review</th>
                     <th className="text-xl">Update Date</th>
-                    <th className="text-xl">Delete Bookings</th>
+                    <th className="text-xl">Cancel Bookings</th>
                   </tr>
                 </thead>
                 <tbody>
